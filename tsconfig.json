@@ -1,10 +1,16 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": [
+    "env.d.ts",
+    "playground/**/*",
+    "playground/**/*.vue",
+    "components/**/*",
+    "components/**/*.vue"
+  ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "canvas-ui/*": ["./components/*"]
     }
   },
 

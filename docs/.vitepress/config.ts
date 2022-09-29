@@ -6,7 +6,6 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide' },
       { text: 'Configs', link: '/configs' },
-      { text: 'Changelog', link: 'https://github.com/...' },
     ],
     socialLinks: [
       { icon: 'github', link: '/' },
