@@ -7,10 +7,10 @@ titleTemplate:
 
 hero:
   name: canvas-ui/Vue
-  text: 
-  tagline: 
-  image:
-    src: favicon.ico
+  text: asdasdasdasdasdas
+  tagline: asdddddddddddddddddddddddddddddddddd
+  image: 
+    src: /logo.svg
     alt: canvas-ui/Vue
   actions:
     - theme: brand

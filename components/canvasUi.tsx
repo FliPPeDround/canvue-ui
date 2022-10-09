@@ -3,9 +3,15 @@ import { Size, createElement } from '@canvas-ui/core'
 
 export default defineComponent({
   name: 'CanvasUi',
-  setup(_, { slots }) {
+  props: {
+    style: {
+      type: Object,
+    },
+  },
+  setup(props, { slots }) {
     const canvas = createElement('Canvas')
-    provide('canvas', canvas)
+    const container = createElement('Flex')
+    provide('canvas', container)
     onMounted(() => {
       const canvasEl = document.getElementById('canvas')! as HTMLCanvasElement
       const canvasRect = canvasEl.getBoundingClientRect()
@@ -13,14 +19,17 @@ export default defineComponent({
       canvas.prepareInitialFrame()
       canvas.el = canvasEl
       canvas.size = surfaceSize
-      canvas.dpr = 1
+      // canvas.dpr = devicePixelRatio
+
+      Object.assign(container.style, props.style)
+      canvas.appendChild(container)
     })
 
     return () => (
-      <div>
-        <canvas id='canvas' />
-        {slots.default!()}
-      </div>
+      <>
+        <canvas id="canvas" />
+        {slots.default?.()}
+      </>
     )
   },
 })
