@@ -10,7 +10,7 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     const canvas = createElement('Canvas')
-    const container = createElement('Flex')
+    const container = createElement(props.style?.display === 'flex' ? 'Flex' : 'View')
     provide('canvas', container)
     onMounted(() => {
       const canvasEl = document.getElementById('canvas')! as HTMLCanvasElement

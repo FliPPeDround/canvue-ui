@@ -4,13 +4,13 @@
     "env.d.ts",
     "playground/**/*",
     "playground/**/*.vue",
-    "components/**/*",
-    "components/**/*.vue"
+    "src/components/**/*",
+    "src/components/**/*.vue"
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "canvas-ui/*": ["./components/*"]
+      "canvas-ui/*": ["src/components/*"]
     }
   },
 

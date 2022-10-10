@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      'canvas-ui': fileURLToPath(new URL('./components', import.meta.url)),
+      'canvas-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
     },
   },
   define: {
@@ -16,7 +16,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: fileURLToPath(new URL('./components/index.ts', import.meta.url)),
+      entry: fileURLToPath(new URL('./src/components/index.ts', import.meta.url)),
       name: 'CanvasUi',
       fileName: 'canvas-ui',
     },

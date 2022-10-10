@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "vitest",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
@@ -25,6 +26,7 @@
     "typescript": "~4.7.4",
     "vite": "^3.0.9",
     "vitepress": "1.0.0-alpha.17",
+    "vitest": "^0.24.0",
     "vue": "^3.2.38",
     "vue-tsc": "^0.40.7"
   }
