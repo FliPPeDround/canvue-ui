@@ -18,7 +18,7 @@ const handleClick = () => {
     <canvasButton @click="handleClick">
       按钮
     </canvasButton>
-    <canvasButton>
+    <canvasButton type="aa">
       Button
     </canvasButton>
   </canvas-ui>
