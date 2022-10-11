@@ -2,7 +2,7 @@
   "name": "@canvas-ui/vue",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host=0.0.0.0",
     "test": "vitest",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
