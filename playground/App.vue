@@ -2,8 +2,8 @@
 import { canvasButton, canvasRect, canvasText, canvasUi } from 'canvas-ui/index'
 
 const flexStyle = {
-  width: 300,
-  hight: 150,
+  width: 500,
+  hight: 500,
   display: 'flex',
   flexDirection: 'column',
 }
@@ -16,10 +16,25 @@ const handleClick = () => {
 <template>
   <canvas-ui :style="flexStyle">
     <canvasButton @click="handleClick">
-      按钮
+      Default
     </canvasButton>
-    <canvasButton type="aa">
-      Button
+    <canvasButton type="primary">
+      primary
+    </canvasButton>
+    <canvasButton type="success">
+      success
+    </canvasButton>
+    <canvasButton type="warning">
+      warning
+    </canvasButton>
+    <canvasButton type="danger">
+      danger
+    </canvasButton>
+    <canvasButton type="info">
+      info
+    </canvasButton>
+    <canvasButton color="#626aef">
+      #626aef color
     </canvasButton>
   </canvas-ui>
 </template>

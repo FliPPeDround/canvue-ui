@@ -1,50 +1,17 @@
 import { Text, defineComponent, h, inject, watchEffect } from 'vue'
 import type { RenderCanvas } from '@canvas-ui/core'
 import { createElement } from '@canvas-ui/core'
-import { styleTransform } from '../../../utils/styleTransform'
 import { getLenPx } from '../../../utils/getLenPx'
-import { ButtonStyle, activeButtonStyle, hoverButtonStyle } from './style'
-import ButtonProps from './propsType'
-
-// function setButtonStyle(props) {
-//   const { type, style } = props
-//   const buttonStyle = styleTransform(ButtonStyle, style)
-//   if (type === 'primary') {
-//     buttonStyle.color = '#fff'
-//     buttonStyle.borderColor = '#409eff'
-//     buttonStyle.backgroundColor = '#409eff'
-//   }
-//   else if (type === 'success') {
-//     buttonStyle.color = '#fff'
-//     buttonStyle.borderColor = '#67c23a'
-//     buttonStyle.backgroundColor = '#67c23a'
-//   }
-//   else if (type === 'warning') {
-//     buttonStyle.color = '#fff'
-//     buttonStyle.borderColor = '#e6a23c'
-//     buttonStyle.backgroundColor = '#e6a23c'
-//   }
-//   else if (type === 'info') {
-//     buttonStyle.color = '#fff'
-//     buttonStyle.borderColor = '#909399'
-//     buttonStyle.backgroundColor = '#909399'
-//   }
-//   else if (type === 'danger') {
-//     buttonStyle.color = '#fff'
-//     buttonStyle.borderColor = '#f56c6c'
-//     buttonStyle.backgroundColor = '#f56c6c'
-//   }
-//   else if (type === 'text') {
-//     buttonStyle.color = '#409eff'
-//     buttonStyle.borderColor = '#fff'
-//     buttonStyle.backgroundColor = '#fff'
-//   }
-//   return buttonStyle
-// }
+import {
+  ButtonStyle,
+  computeColor,
+  getColorByType,
+} from './style'
+import { buttonProps } from './propsType'
 
 export default defineComponent({
   name: 'CanvasButton',
-  props: ButtonProps,
+  props: buttonProps,
   emits: ['click'],
   setup(props, { emit, slots }) {
     const slot = slots.default?.()[0]
@@ -56,23 +23,28 @@ export default defineComponent({
       throw new Error('CanvasRect must be a child of CanvasUi')
 
     const canvasNode = createElement('Text')
-    Object.assign(canvasNode.style, ButtonStyle)
+    const canvasNodeStyle = canvasNode.style
+
+    const buttonColors = props.color ? computeColor(props.color) : getColorByType(props.type)
+    Object.assign(canvasNodeStyle, ButtonStyle, buttonColors.custom)
+
     canvasNode.onPointerEnter = () => {
-      Object.assign(canvasNode.style, hoverButtonStyle)
+      Object.assign(canvasNodeStyle, buttonColors.hover)
     }
     canvasNode.onPointerLeave = () => {
-      Object.assign(canvasNode.style, ButtonStyle)
+      Object.assign(canvasNodeStyle, buttonColors.custom)
     }
     canvasNode.onPointerDown = () => {
-      Object.assign(canvasNode.style, activeButtonStyle)
+      Object.assign(canvasNodeStyle, buttonColors.active)
     }
     canvasNode.onPointerUp = () => {
-      Object.assign(canvasNode.style, hoverButtonStyle)
+      Object.assign(canvasNodeStyle, buttonColors.hover)
       emit('click')
     }
+
     watchEffect(() => {
       if (props.style)
-        Object.assign(canvasNode.style, styleTransform(props.style))
+        Object.assign(canvasNode.style, ButtonStyle, props.style)
       const context = slot.children?.toString() ?? ''
       canvasNode.style.width = getLenPx(context, canvasNode.style.fontSize!) + 16
       canvasNode.text = context

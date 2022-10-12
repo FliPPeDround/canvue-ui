@@ -1,3 +1,5 @@
+import type { ExtractPropTypes } from 'vue'
+
 export const buttonTypes = [
   'default',
   'primary',
@@ -5,15 +7,10 @@ export const buttonTypes = [
   'warning',
   'info',
   'danger',
-  /**
-   * @deprecated
-   * Text type will be deprecated in the next major version (3.0.0)
-   */
-  'text',
   '',
 ] as const
 
-export default {
+export const buttonProps = {
   style: {
     type: Object,
   },
@@ -22,4 +19,11 @@ export default {
     values: buttonTypes,
     default: '',
   },
-}
+  color: {
+    type: String,
+    default: '',
+  },
+} as const
+
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>
+export type ButtonType = ButtonProps['type']

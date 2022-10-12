@@ -14,11 +14,16 @@ export default defineComponent({
     provide('canvas', container)
     onMounted(() => {
       const canvasEl = document.getElementById('canvas')! as HTMLCanvasElement
-      const canvasRect = canvasEl.getBoundingClientRect()
-      const surfaceSize = Size.fromWH(canvasRect.width, canvasRect.height)
+      canvasEl.width = 500
+      canvasEl.height = 500
+      // const canvasRect = canvasEl.getBoundingClientRect()
+      // const surfaceSize = Size.fromWH(500, 500)
       canvas.prepareInitialFrame()
       canvas.el = canvasEl
-      canvas.size = surfaceSize
+      canvas.size = {
+        width: props.style?.width,
+        height: 500,
+      }
       // canvas.dpr = devicePixelRatio
 
       Object.assign(container.style, props.style)
