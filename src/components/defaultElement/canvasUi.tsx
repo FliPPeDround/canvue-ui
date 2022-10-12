@@ -11,9 +11,10 @@ export default defineComponent({
   setup(props, { slots }) {
     const canvas = createElement('Canvas')
     const container = createElement(props.style?.display === 'flex' ? 'Flex' : 'View')
-    provide('canvas', container)
+    provide('container', container)
+    provide('canvas', canvas)
     onMounted(() => {
-      const canvasEl = document.getElementById('canvas')! as HTMLCanvasElement
+      const canvasEl = document.getElementById('__canvas_root_dom')! as HTMLCanvasElement
       canvasEl.width = 500
       canvasEl.height = 500
       // const canvasRect = canvasEl.getBoundingClientRect()
@@ -32,7 +33,7 @@ export default defineComponent({
 
     return () => (
       <>
-        <canvas id="canvas" />
+        <canvas id="__canvas_root_dom" style="position: relative"/>
         {slots.default?.()}
       </>
     )

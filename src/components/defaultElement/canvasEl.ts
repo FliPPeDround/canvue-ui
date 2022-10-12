@@ -22,9 +22,9 @@ export default (elName: ElementType) => {
     },
     emits: ['over', 'out'],
     setup(props, { emit, slots }) {
-      const canvas = inject<RenderCanvas>('canvas')
+      const container = inject<RenderCanvas>('container')
 
-      if (!canvas)
+      if (!container)
         throw new Error('CanvasRect must be a child of CanvasUi')
 
       const canvasNode = createElement(elName)
@@ -36,7 +36,7 @@ export default (elName: ElementType) => {
           (canvasNode as RenderText).text = slots.default?.()[0].children?.toString() ?? ''
       })
       canvasNode.onPointerOver = () => emit('over')
-      canvas!.appendChild(canvasNode)
+      container!.appendChild(canvasNode)
 
       const isContainer = elName in CONTAINERS
       return isContainer

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { canvasButton, canvasRect, canvasText, canvasUi } from 'canvas-ui/index'
+import { canvasButton, canvasInput, canvasRect, canvasText, canvasUi } from 'canvas-ui/index'
 
 const flexStyle = {
   width: 500,
@@ -36,6 +36,7 @@ const handleClick = () => {
     <canvasButton color="#626aef">
       #626aef color
     </canvasButton>
+    <canvasInput />
   </canvas-ui>
 </template>
 

@@ -16,7 +16,25 @@ export const ButtonStyle: StyleProps = {
   lineHeight: 14,
 }
 
-export function getColorByType(type: ButtonType) {
+export const customColor = {
+  custom: {
+    color: '#606266',
+    borderColor: '#dcdfe6',
+    backgroundColor: '#fff',
+  },
+  hover: {
+    color: '#409eff',
+    borderColor: '#c6e2ff',
+    backgroundColor: '#ecf5ff',
+  },
+  active: {
+    color: '#409eff',
+    borderColor: '#409eff',
+    backgroundColor: '#ecf5ff',
+  },
+}
+
+export function getColorsByType(type: ButtonType) {
   const colors = {
     custom: {
       color: '#606266',
@@ -92,6 +110,23 @@ export function getColorByType(type: ButtonType) {
       break
   }
   return colors
+}
+
+export function getColorByType(type: ButtonType) {
+  switch (type) {
+    case 'primary':
+      return '#409eff'
+    case 'success':
+      return '#67c23a'
+    case 'warning':
+      return '#e6a23c'
+    case 'info':
+      return '#909399'
+    case 'danger':
+      return '#f56c6c'
+    default:
+      return '#606266'
+  }
 }
 
 export function computeColor(buttonColor: string) {

@@ -1,7 +1,9 @@
 // import type { ElementType } from '@canvas-ui/core'
 import canvasUi from './defaultElement/canvasUi'
 import canvasEl from './defaultElement/canvasEl'
+
 import canvasButton from './baseElement/button/button'
+import canvasInput from './baseElement/input/input'
 
 const canvasRect = canvasEl('Rect')
 const canvasCircle = canvasEl('Circle')
@@ -47,5 +49,6 @@ export {
   canvasImage,
   canvasText,
   canvasButton,
+  canvasInput,
 }
 

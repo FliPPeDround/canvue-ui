@@ -5,7 +5,9 @@ import { getLenPx } from '../../../utils/getLenPx'
 import {
   ButtonStyle,
   computeColor,
-  getColorByType,
+  // customColor,
+  // getColorByType,
+  getColorsByType,
 } from './style'
 import { buttonProps } from './propsType'
 
@@ -18,14 +20,17 @@ export default defineComponent({
     if (slot?.type !== Text)
       throw new Error('CanvasButton only support text')
 
-    const canvas = inject<RenderCanvas>('canvas')
-    if (!canvas)
+    const container = inject<RenderCanvas>('container')
+    if (!container)
       throw new Error('CanvasRect must be a child of CanvasUi')
 
     const canvasNode = createElement('Text')
     const canvasNodeStyle = canvasNode.style
 
-    const buttonColors = props.color ? computeColor(props.color) : getColorByType(props.type)
+    const buttonColors = props.color
+      ? computeColor(props.color)
+      : getColorsByType(props.type)
+      // : (props.type ? computeColor(getColorByType(props.type)) : customColor)
     Object.assign(canvasNodeStyle, ButtonStyle, buttonColors.custom)
 
     canvasNode.onPointerEnter = () => {
@@ -49,7 +54,7 @@ export default defineComponent({
       canvasNode.style.width = getLenPx(context, canvasNode.style.fontSize!) + 16
       canvasNode.text = context
     })
-    canvas!.appendChild(canvasNode)
+    container!.appendChild(canvasNode)
 
     return () => h('template', {}, slots.default?.())
   },
