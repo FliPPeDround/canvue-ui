@@ -1,6 +1,5 @@
 import { Text, defineComponent, h, inject, watchEffect } from 'vue'
-import type { RenderCanvas } from '@canvas-ui/core'
-import { createElement } from '@canvas-ui/core'
+import { type RenderCanvas, createElement } from '@canvas-ui/core'
 import { getLenPx } from '../../../utils/getLenPx'
 import {
   ButtonStyle,
