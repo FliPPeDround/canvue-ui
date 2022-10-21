@@ -33,7 +33,7 @@ export default defineComponent({
 
     return () => (
       <>
-        <canvas id="__canvas_root_dom" style="position: relative"/>
+        <canvas id="__canvas_root_dom"/>
         {slots.default?.()}
       </>
     )

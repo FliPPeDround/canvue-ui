@@ -36,7 +36,7 @@ const handleClick = () => {
     <canvasButton color="#626aef">
       #626aef color
     </canvasButton>
-    <canvasInput />
+    <canvasInput placeholder="qwe" />
   </canvas-ui>
 </template>
 
