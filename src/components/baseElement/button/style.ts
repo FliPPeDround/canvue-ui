@@ -3,6 +3,7 @@ import { TinyColor } from '@ctrl/tinycolor'
 import type { ButtonType } from './propsType'
 export const ButtonStyle: StyleProps = {
   cursor: 'pointer',
+  textAlign: 'center',
   paddingTop: 8,
   paddingBottom: 8,
   marginBottom: 1,
@@ -10,7 +11,6 @@ export const ButtonStyle: StyleProps = {
   marginRight: 1,
   marginTop: 1,
   borderRadius: 4,
-  textAlign: 'center',
   borderWidth: 1,
   fontSize: 14,
   lineHeight: 14,

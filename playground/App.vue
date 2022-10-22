@@ -9,7 +9,7 @@ const flexStyle = {
 }
 
 const handleClick = () => {
-  console.log('click')
+  // console.log('click')
 }
 </script>
 
@@ -38,6 +38,7 @@ const handleClick = () => {
     </canvasButton>
     <canvasInput placeholder="qwe" />
   </canvas-ui>
+  <input type="text">
 </template>
 
 <style>
