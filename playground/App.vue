@@ -38,7 +38,7 @@ const handleClick = () => {
     </canvasButton>
     <canvasInput placeholder="qwe" />
   </canvas-ui>
-  <input type="text">
+  <input type="text" placeholder="asd">
 </template>
 
 <style>

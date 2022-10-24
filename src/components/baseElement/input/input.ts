@@ -1,5 +1,5 @@
 import { type RenderCanvas, createElement } from '@canvas-ui/core'
-import { defineComponent, h, inject, onMounted, ref, watchEffect } from 'vue'
+import { defineComponent, h, inject, onMounted, ref } from 'vue'
 import { InputStyle } from './style'
 import { getPositionByNode } from './../../../utils'
 
@@ -34,6 +34,7 @@ export default defineComponent({
       inputElStyle.value.width = position.width
       inputElStyle.value.height = position.height
       inputEl.focus()
+      inputNodeStyle.borderColor = '#409EFF'
     }
     container!.appendChild(inputNode)
 
@@ -42,7 +43,15 @@ export default defineComponent({
     })
 
     const handleInput = (e: { target: HTMLInputElement }) => {
-      inputNode.text = e.target.value
+      if (e.target.value) {
+        inputNode.text = e.target.value
+        if (inputNodeStyle.color !== '#303133')
+          inputNodeStyle.color = '#303133'
+      }
+      else {
+        inputNode.text = props.placeholder ?? ''
+        inputNodeStyle.color = '#A9ABB2'
+      }
     }
 
     return () => h(

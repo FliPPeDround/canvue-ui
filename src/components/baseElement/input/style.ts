@@ -3,7 +3,7 @@ import type { StyleProps } from '@canvas-ui/core'
 export const InputStyle: StyleProps = {
   cursor: 'text',
   color: '#A9ABB2',
-  width: 140,
+  width: 200,
   height: 30,
   paddingTop: 8,
   paddingBottom: 8,
