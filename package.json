@@ -1,6 +1,17 @@
 {
-  "name": "@vue/canvas-ui",
-  "version": "0.0.0",
+  "name": "canvue-ui",
+  "version": "0.0.1",
+  "author": "FliPPeDround",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/index.mjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite --host=0.0.0.0",
     "test": "vitest",

@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      'canvas-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
+      'canvue-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
     },
   },
   define: {
@@ -17,8 +17,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.ts', import.meta.url)),
-      name: 'CanvasUi',
-      fileName: 'canvas-ui',
+      name: 'canvue-ui',
+      fileName: 'canvue-ui',
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖

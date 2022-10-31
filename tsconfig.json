@@ -10,7 +10,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "canvas-ui/*": ["src/components/*"]
+      "canvue-ui/*": ["src/components/*"]
     }
   },
 

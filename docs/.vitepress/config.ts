@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 export default defineConfig({
-  title: 'canvas-ui/Vue',
+  title: 'Canvue',
   themeConfig: {
     logo: '/logo.svg',
     nav: [

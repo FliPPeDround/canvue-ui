@@ -2,16 +2,16 @@
 layout: home
 sidebar: false
 
-title: canvas-ui/Vue
+title: Canvue
 titleTemplate: 
 
 hero:
-  name: canvas-ui/Vue
+  name: Canvue
   text: asdasdasdasdasdas
   tagline: asdddddddddddddddddddddddddddddddddd
   image: 
     src: /logo.svg
-    alt: canvas-ui/Vue
+    alt: Canvue
   actions:
     - theme: brand
       text: Get Started

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { canvasButton, canvasInput, canvasRect, canvasText, canvasUi } from 'canvas-ui/index'
+import { canvasButton, canvasInput, canvasRect, canvasText, canvasUi } from 'canvue-ui/index'
 
 const flexStyle = {
   width: 500,
