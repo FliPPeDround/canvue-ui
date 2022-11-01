@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, provide } from 'vue'
+import { defineComponent, onMounted, provide } from 'vue-demi'
 import { Size, createElement } from '@canvas-ui/core'
 
 export default defineComponent({
@@ -32,10 +32,10 @@ export default defineComponent({
     })
 
     return () => (
-      <>
+      <div>
         <canvas id="__canvas_root_dom"/>
         {slots.default?.()}
-      </>
+      </div>
     )
   },
 })

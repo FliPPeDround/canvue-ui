@@ -1,5 +1,5 @@
 import { type RenderCanvas, createElement } from '@canvas-ui/core'
-import { defineComponent, h, inject, onMounted, ref } from 'vue'
+import { defineComponent, h, inject, onMounted, ref } from 'vue-demi'
 import { InputStyle } from './style'
 import { getPositionByNode } from './../../../utils'
 

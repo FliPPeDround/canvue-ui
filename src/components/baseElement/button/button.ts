@@ -1,4 +1,4 @@
-import { Text, defineComponent, h, inject, watchEffect } from 'vue'
+import { Text, defineComponent, h, inject, watchEffect } from 'vue-demi'
 import { type RenderCanvas, createElement } from '@canvas-ui/core'
 import { getLenPx } from '../../../utils/getLenPx'
 import {

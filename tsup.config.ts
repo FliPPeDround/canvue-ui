@@ -8,4 +8,6 @@ export default defineConfig({
   dts: true,
   tsconfig: './tsconfig.json',
   clean: true,
+  jsxFactory: 'h',
+  jsxFragment: 'Fragment',
 })
