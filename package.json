@@ -6,16 +6,20 @@
   "exports": {
     ".": {
       "require": "./dist/index.mjs",
-      "import": "./dist/index.js"
+      "import": "./dist/index.mjs"
     }
   },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite --host=0.0.0.0",
     "test": "vitest",
-    "build": "run-p type-check build-only",
+    "build:tsup": "tsup",
+    "build:vite": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
@@ -23,9 +27,19 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@canvas-ui/core": "0.9.0-alpha.0",
-    "@ctrl/tinycolor": "^3.4.1"
+    "@ctrl/tinycolor": "^3.4.1",
+    "vue-demi": "^0.13.11"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
@@ -35,6 +49,7 @@
     "@vue/tsconfig": "^0.1.3",
     "eslint": "^8.24.0",
     "npm-run-all": "^4.1.5",
+    "tsup": "^6.3.0",
     "typescript": "~4.7.4",
     "vite": "^3.0.9",
     "vitepress": "1.0.0-alpha.17",
