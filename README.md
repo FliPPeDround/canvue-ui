@@ -1,1 +1,1 @@
-# canvas-ui-vue
+# canvue
