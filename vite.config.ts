@@ -2,18 +2,17 @@ import { URL, fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [vue()],
   resolve: {
     alias: {
       'canvue-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
     },
   },
-  define: {
-    'process.env': {},
-  },
+  // define: {
+  //   'process.env': {},
+  // },
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.ts', import.meta.url)),

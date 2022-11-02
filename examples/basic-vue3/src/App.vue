@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { canvasButton, canvasInput, canvasRect, canvasText, canvasUi } from 'canvue-ui'
+import { canvasButton, canvasInput, canvasUi } from './../../../dist/index.mjs'
 
 const flexStyle = {
   width: 500,
@@ -38,7 +38,6 @@ const handleClick = () => {
     </canvasButton>
     <canvasInput placeholder="qwe" />
   </canvas-ui>
-  <input type="text" placeholder="asd">
 </template>
 
 <style>

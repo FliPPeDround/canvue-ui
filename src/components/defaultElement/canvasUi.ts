@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, provide } from 'vue-demi'
+import { defineComponent, h, onMounted, provide } from 'vue-demi'
 import { Size, createElement } from '@canvas-ui/core'
 
 export default defineComponent({
@@ -31,11 +31,12 @@ export default defineComponent({
       canvas.appendChild(container)
     })
 
-    return () => (
-      <div>
-        <canvas id="__canvas_root_dom"/>
-        {slots.default?.()}
-      </div>
+    return () => h(
+      'div',
+      [
+        h('canvas', { id: '__canvas_root_dom' }),
+        slots.default?.(),
+      ],
     )
   },
 })
