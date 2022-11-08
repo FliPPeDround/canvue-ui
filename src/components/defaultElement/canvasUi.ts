@@ -14,7 +14,7 @@ export default defineComponent({
     provide('container', container)
     provide('canvas', canvas)
     onMounted(() => {
-      const canvasEl = document.getElementById('__canvas_root_dom')! as HTMLCanvasElement
+      const canvasEl = document.getElementById('__canvue_root_dom')! as HTMLCanvasElement
       canvasEl.width = 500
       canvasEl.height = 500
       // const canvasRect = canvasEl.getBoundingClientRect()
@@ -34,7 +34,7 @@ export default defineComponent({
     return () => h(
       'div',
       [
-        h('canvas', { id: '__canvas_root_dom' }),
+        h('canvas', { id: '__canvue_root_dom' }),
         slots.default?.(),
       ],
     )
