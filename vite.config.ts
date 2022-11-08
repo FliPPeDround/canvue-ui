@@ -10,9 +10,9 @@ export default defineConfig({
       'canvue-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
     },
   },
-  // define: {
-  //   'process.env': {},
-  // },
+  define: {
+    'process.env': {},
+  },
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/components/index.ts', import.meta.url)),

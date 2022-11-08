@@ -1,4 +1,4 @@
-import { defineComponent, onMounted, provide } from 'vue-demi'
+import { defineComponent, h, onMounted, provide } from 'vue-demi'
 import { createElement } from '@canvas-ui/core'
 
 export default defineComponent({
