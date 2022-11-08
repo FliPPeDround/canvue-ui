@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { canvasButton, canvasInput, canvasUi } from './../dist/index.mjs'
+import { canvasButton, canvasInput, canvasUi } from 'canvue-ui'
 
 const flexStyle = {
   width: 500,
@@ -14,7 +14,7 @@ const handleClick = () => {
 </script>
 
 <template>
-  <canvas-ui :style="flexStyle">
+  <canvas-ui :styles="flexStyle">
     <canvasButton @click="handleClick">
       Default
     </canvasButton>

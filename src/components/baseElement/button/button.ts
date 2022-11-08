@@ -47,8 +47,8 @@ export default defineComponent({
     }
 
     watchEffect(() => {
-      if (props.style)
-        Object.assign(canvasNode.style, ButtonStyle, props.style)
+      if (props.styles)
+        Object.assign(canvasNode.style, ButtonStyle, props.styles)
       const context = slot.children?.toString() ?? ''
       canvasNode.style.width = getLenPx(context, canvasNode.style.fontSize!) + 16
       canvasNode.text = context

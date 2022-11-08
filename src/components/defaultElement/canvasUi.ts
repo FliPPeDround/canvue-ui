@@ -1,16 +1,16 @@
-import { defineComponent, h, onMounted, provide } from 'vue-demi'
-import { Size, createElement } from '@canvas-ui/core'
+import { defineComponent, onMounted, provide } from 'vue-demi'
+import { createElement } from '@canvas-ui/core'
 
 export default defineComponent({
   name: 'CanvasUi',
   props: {
-    style: {
+    styles: {
       type: Object,
     },
   },
   setup(props, { slots }) {
     const canvas = createElement('Canvas')
-    const container = createElement(props.style?.display === 'flex' ? 'Flex' : 'View')
+    const container = createElement(props.styles?.display === 'flex' ? 'Flex' : 'View')
     provide('container', container)
     provide('canvas', canvas)
     onMounted(() => {
@@ -22,12 +22,12 @@ export default defineComponent({
       canvas.prepareInitialFrame()
       canvas.el = canvasEl
       canvas.size = {
-        width: props.style?.width,
+        width: props.styles?.width,
         height: 500,
       }
       // canvas.dpr = devicePixelRatio
 
-      Object.assign(container.style, props.style)
+      Object.assign(container.style, props.styles)
       canvas.appendChild(container)
     })
 

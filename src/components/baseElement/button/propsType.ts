@@ -11,7 +11,7 @@ export const buttonTypes = [
 ] as const
 
 export const buttonProps = {
-  style: {
+  styles: {
     type: Object,
   },
   type: {

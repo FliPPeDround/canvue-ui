@@ -15,7 +15,7 @@ export default (elName: ElementType) => {
   return defineComponent({
     name: 'CanvasRect',
     props: {
-      style: {
+      styles: {
         type: Object,
         required: false,
       },
@@ -29,8 +29,8 @@ export default (elName: ElementType) => {
 
       const canvasNode = createElement(elName)
       watchEffect(() => {
-        if (props.style)
-          Object.assign(canvasNode.style, styleTransform(props.style))
+        if (props.styles)
+          Object.assign(canvasNode.style, styleTransform(props.styles))
 
         if (elName === 'Text')
           (canvasNode as RenderText).text = slots.default?.()[0].children?.toString() ?? ''
