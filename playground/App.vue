@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cvButton, cvUi } from 'canvue-ui'
+import { cvButton, cvInput, cvUi } from 'canvue-ui'
 
 const flexStyle = {
   width: 500,
@@ -18,6 +18,7 @@ const handleClick = () => {
     <cv-button @click="handleClick">
       Click me
     </cv-button>
+    <cv-input placeholder="asd" />
   </cv-ui>
 </template>
 

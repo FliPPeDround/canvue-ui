@@ -1,5 +1,6 @@
-import { type RenderCanvas, createElement } from '@canvas-ui/core'
-import { defineComponent, h, inject, onMounted, ref } from 'vue-demi'
+import { createElement } from '@canvas-ui/core'
+import { defineComponent, h, onMounted, ref } from 'vue-demi'
+import { useRootCanvas } from '@composables'
 import { InputStyle } from './style'
 import { getPositionByNode } from './../../../utils'
 
@@ -8,7 +9,6 @@ const inputElStyle = ref({
   left: '0px',
   width: '0px',
   height: '0px',
-  opacity: 0,
 })
 
 export default defineComponent({
@@ -19,9 +19,7 @@ export default defineComponent({
   emits: ['click'],
   setup(props) {
     let inputEl: HTMLInputElement
-    const container = inject<RenderCanvas>('container')
-    // console.log('canvas', canvas)
-    // console.log(canvas?.el!.getBoundingClientRect())
+    const container = useRootCanvas('input')
 
     const inputNode = createElement('Text')
     const inputNodeStyle = inputNode.style
@@ -34,9 +32,10 @@ export default defineComponent({
       inputElStyle.value.top = position.top
       inputElStyle.value.width = position.width
       inputElStyle.value.height = position.height
-      inputElStyle.value.opacity = 1
       inputEl.focus()
       inputNodeStyle.borderColor = '#409EFF'
+      inputEl.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
+      inputEl.value = props.placeholder === inputNode.text ? '' : inputNode.text
     }
     container!.appendChild(inputNode)
 
@@ -66,7 +65,6 @@ export default defineComponent({
           left: inputElStyle.value.left,
           width: inputElStyle.value.width,
           height: inputElStyle.value.height,
-          opacity: inputElStyle.value.opacity,
         },
         onChange: (event: { target: HTMLInputElement }) => handleChange(event),
       },

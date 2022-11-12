@@ -1,5 +1,6 @@
-import { Text, defineComponent, h, inject, watchEffect } from 'vue-demi'
-import { type RenderCanvas, createElement } from '@canvas-ui/core'
+import { Text, defineComponent, h, watchEffect } from 'vue-demi'
+import { createElement } from '@canvas-ui/core'
+import { useRootCanvas } from '@composables'
 import { getLenPx } from '../../../utils/getLenPx'
 import { ButtonStyle, computeColor, customColor } from './style'
 import { buttonProps } from './propsType'
@@ -16,9 +17,7 @@ export default defineComponent({
     if (slot?.type !== Text)
       throw new Error('<cv-button> child element only support text')
 
-    const container = inject<RenderCanvas>('container')
-    if (!container)
-      throw new Error('<cv-button> must be a child of <cv-ui>')
+    const container = useRootCanvas('button')
 
     const canvasNode = createElement('Text')
     const canvasNodeStyle = canvasNode.style

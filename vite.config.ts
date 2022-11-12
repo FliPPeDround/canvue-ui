@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       'canvue-ui': fileURLToPath(new URL('./src/components', import.meta.url)),
+      '@composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
     },
   },
   define: {
