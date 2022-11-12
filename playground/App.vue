@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { canvasButton, canvasInput, canvasUi } from 'canvue-ui'
+import { cvButton, cvUi } from 'canvue-ui'
 
 const flexStyle = {
   width: 500,
@@ -9,20 +9,16 @@ const flexStyle = {
 }
 
 const handleClick = () => {
-  // console.log('click')
+  alert('clicked')
 }
 </script>
 
 <template>
-  <canvas-ui :styles="flexStyle">
-    <canvasButton @click="handleClick">
-      Default
-    </canvasButton>
-    <canvasButton color="#626aef">
-      #626aef color
-    </canvasButton>
-    <canvasInput placeholder="qwe" />
-  </canvas-ui>
+  <cv-ui :styles="flexStyle">
+    <cv-button @click="handleClick">
+      Click me
+    </cv-button>
+  </cv-ui>
 </template>
 
 <style>

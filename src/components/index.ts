@@ -1,25 +1,25 @@
-import canvasUi from './defaultElement/canvasUi'
-import canvasEl from './defaultElement/canvasEl'
+import cvUi from './defaultElement/canvueUi'
+import cvEl from './defaultElement/canvueEl'
 
-import canvasButton from './baseElement/button/button'
-import canvasInput from './baseElement/input/input'
+import cvButton from './baseElement/button/button'
+import cvInput from './baseElement/input/input'
 
-const canvasRect = canvasEl('Rect')
-const canvasCircle = canvasEl('Circle')
-const canvasRRect = canvasEl('RRect')
-const canvasPath = canvasEl('Path')
-const canvasImage = canvasEl('Image')
-const canvasText = canvasEl('Text')
+const cvRect = cvEl('Rect')
+const cvCircle = cvEl('Circle')
+const cvRRect = cvEl('RRect')
+const cvPath = cvEl('Path')
+const cvImage = cvEl('Image')
+const cvText = cvEl('Text')
 
 export {
-  canvasUi,
-  canvasRect,
-  canvasCircle,
-  canvasRRect,
-  canvasPath,
-  canvasImage,
-  canvasText,
-  canvasButton,
-  canvasInput,
+  cvUi,
+  cvRect,
+  cvCircle,
+  cvRRect,
+  cvPath,
+  cvImage,
+  cvText,
+  cvButton,
+  cvInput,
 }
 
