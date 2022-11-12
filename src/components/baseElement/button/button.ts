@@ -10,12 +10,15 @@ export default defineComponent({
   emits: ['click'],
   setup(props, { emit, slots }) {
     const slot = slots.default?.()[0]
+    if (!slot)
+      throw new Error('<cv-button> must have a child element')
+
     if (slot?.type !== Text)
-      throw new Error('CanvasButton only support text')
+      throw new Error('<cv-button> child element only support text')
 
     const container = inject<RenderCanvas>('container')
     if (!container)
-      throw new Error('CanvasRect must be a child of CanvasUi')
+      throw new Error('<cv-button> must be a child of <cv-ui>')
 
     const canvasNode = createElement('Text')
     const canvasNodeStyle = canvasNode.style
