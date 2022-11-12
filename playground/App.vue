@@ -18,21 +18,6 @@ const handleClick = () => {
     <canvasButton @click="handleClick">
       Default
     </canvasButton>
-    <canvasButton type="primary">
-      primary
-    </canvasButton>
-    <canvasButton type="success">
-      success
-    </canvasButton>
-    <canvasButton type="warning">
-      warning
-    </canvasButton>
-    <canvasButton type="danger">
-      danger
-    </canvasButton>
-    <canvasButton type="info">
-      info
-    </canvasButton>
     <canvasButton color="#626aef">
       #626aef color
     </canvasButton>

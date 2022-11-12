@@ -1,13 +1,7 @@
 import { Text, defineComponent, h, inject, watchEffect } from 'vue-demi'
 import { type RenderCanvas, createElement } from '@canvas-ui/core'
 import { getLenPx } from '../../../utils/getLenPx'
-import {
-  ButtonStyle,
-  computeColor,
-  // customColor,
-  // getColorByType,
-  getColorsByType,
-} from './style'
+import { ButtonStyle, computeColor, customColor } from './style'
 import { buttonProps } from './propsType'
 
 export default defineComponent({
@@ -28,8 +22,7 @@ export default defineComponent({
 
     const buttonColors = props.color
       ? computeColor(props.color)
-      : getColorsByType(props.type)
-      // : (props.type ? computeColor(getColorByType(props.type)) : customColor)
+      : customColor
     Object.assign(canvasNodeStyle, ButtonStyle, buttonColors.custom)
 
     canvasNode.onPointerEnter = () => {
