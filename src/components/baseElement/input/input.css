@@ -1,0 +1,26 @@
+#__canvue_input_dom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  border: #dcdfe8 1px solid;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0 11px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #606266;
+  resize: none;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+#__canvue_input_dom:focus {
+  border: #409EFF 1px solid;
+}

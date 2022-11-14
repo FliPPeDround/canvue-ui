@@ -1,10 +1,11 @@
 import { createElement } from '@canvas-ui/core'
-import { defineComponent, h, onMounted, ref } from 'vue-demi'
+import { defineComponent, h, onMounted, reactive } from 'vue-demi'
 import { useRootCanvas } from '@composables'
 import { InputStyle } from './style'
 import { getPositionByNode } from './../../../utils'
+import './input.css'
 
-const inputElStyle = ref({
+const inputElStyle = reactive({
   top: '0px',
   left: '0px',
   width: '0px',
@@ -28,12 +29,11 @@ export default defineComponent({
 
     inputNode.onPointerDown = () => {
       const position = getPositionByNode(inputNode)
-      inputElStyle.value.left = position.left
-      inputElStyle.value.top = position.top
-      inputElStyle.value.width = position.width
-      inputElStyle.value.height = position.height
+      inputElStyle.left = position.left
+      inputElStyle.top = position.top
+      inputElStyle.width = position.width
+      inputElStyle.height = position.height
       inputEl.focus()
-      inputNodeStyle.borderColor = '#409EFF'
       inputEl.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
       inputEl.value = props.placeholder === inputNode.text ? '' : inputNode.text
     }
@@ -61,10 +61,10 @@ export default defineComponent({
         id: '__canvue_input_dom',
         style: {
           position: 'fixed',
-          top: inputElStyle.value.top,
-          left: inputElStyle.value.left,
-          width: inputElStyle.value.width,
-          height: inputElStyle.value.height,
+          top: inputElStyle.top,
+          left: inputElStyle.left,
+          width: inputElStyle.width,
+          height: inputElStyle.height,
         },
         onChange: (event: { target: HTMLInputElement }) => handleChange(event),
       },

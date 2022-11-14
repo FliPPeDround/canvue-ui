@@ -1,6 +1,7 @@
-import { defineComponent, h, inject, watchEffect } from 'vue-demi'
-import type { ElementType, RenderCanvas, RenderText } from '@canvas-ui/core'
+import { defineComponent, h, watchEffect } from 'vue-demi'
+import type { ElementType, RenderText } from '@canvas-ui/core'
 import { createElement } from '@canvas-ui/core'
+import { useRootCanvas } from '@composables'
 import { styleTransform } from '../../utils/styleTransform'
 
 const CONTAINERS = {
@@ -22,11 +23,7 @@ export default (elName: ElementType) => {
     },
     emits: ['over', 'out'],
     setup(props, { emit, slots }) {
-      const container = inject<RenderCanvas>('container')
-
-      if (!container)
-        throw new Error('CanvasRect must be a child of CanvasUi')
-
+      const container = useRootCanvas(elName)
       const canvasNode = createElement(elName)
       watchEffect(() => {
         if (props.styles)
