@@ -1,16 +1,9 @@
 import { createElement } from '@canvas-ui/core'
-import { defineComponent, h, onMounted, reactive } from 'vue-demi'
-import { useRootCanvas } from '@composables'
+import { defineComponent } from 'vue-demi'
+import { inputEl, useRootCanvas, useSetInputElement } from '@composables'
 import { InputStyle } from './style'
 import { getPositionByNode } from './../../../utils'
 import './input.css'
-
-const inputElStyle = reactive({
-  top: '0px',
-  left: '0px',
-  width: '0px',
-  height: '0px',
-})
 
 export default defineComponent({
   name: 'CanvasButton',
@@ -19,7 +12,6 @@ export default defineComponent({
   },
   emits: ['click'],
   setup(props) {
-    let inputEl: HTMLInputElement
     const container = useRootCanvas('input')
 
     const inputNode = createElement('Text')
@@ -29,19 +21,17 @@ export default defineComponent({
 
     inputNode.onPointerDown = () => {
       const position = getPositionByNode(inputNode)
-      inputElStyle.left = position.left
-      inputElStyle.top = position.top
-      inputElStyle.width = position.width
-      inputElStyle.height = position.height
-      inputEl.focus()
-      inputEl.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
-      inputEl.value = props.placeholder === inputNode.text ? '' : inputNode.text
+      useSetInputElement()
+      inputEl.value!.style.position = 'fixed'
+      inputEl.value!.style.top = position.top
+      inputEl.value!.style.left = position.left
+      inputEl.value!.style.width = position.width
+      inputEl.value!.style.height = position.height
+      inputEl.value!.focus()
+      inputEl.value!.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
+      inputEl.value!.value = props.placeholder === inputNode.text ? '' : inputNode.text
     }
     container!.appendChild(inputNode)
-
-    onMounted(() => {
-      inputEl = document.getElementById('__canvue_input_dom')! as HTMLInputElement
-    })
 
     const handleChange = (e: { target: HTMLInputElement }) => {
       if (e.target.value) {
@@ -55,19 +45,6 @@ export default defineComponent({
       }
     }
 
-    return () => h(
-      'input',
-      {
-        id: '__canvue_input_dom',
-        style: {
-          position: 'fixed',
-          top: inputElStyle.top,
-          left: inputElStyle.left,
-          width: inputElStyle.width,
-          height: inputElStyle.height,
-        },
-        onChange: (event: { target: HTMLInputElement }) => handleChange(event),
-      },
-    )
+    return () => null
   },
 })

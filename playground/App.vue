@@ -18,7 +18,8 @@ const handleClick = () => {
     <cv-button @click="handleClick">
       Click me
     </cv-button>
-    <cv-input placeholder="asd" />
+    <cv-input placeholder="aaasdasdasd" />
+    <cv-input placeholder="你在干什么" />
   </cv-ui>
 </template>
 

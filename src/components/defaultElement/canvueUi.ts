@@ -33,6 +33,9 @@ export default defineComponent({
 
     return () => h(
       'div',
+      {
+        class: '__canvue_root',
+      },
       [
         h('canvas', { id: '__canvue_root_dom' }),
         slots.default?.(),

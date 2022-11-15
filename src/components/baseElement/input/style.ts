@@ -8,7 +8,7 @@ export const InputStyle: StyleProps = {
   paddingTop: 7,
   paddingBottom: 8,
   paddingLeft: 12,
-  paddingRight: 11,
+  paddingRight: 12,
   borderRadius: 4,
   borderWidth: 1,
   borderColor: '#dcdfe8',
