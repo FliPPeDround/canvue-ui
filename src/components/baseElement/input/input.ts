@@ -30,20 +30,20 @@ export default defineComponent({
       inputEl.value!.focus()
       inputEl.value!.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
       inputEl.value!.value = props.placeholder === inputNode.text ? '' : inputNode.text
+      inputEl.value!.onchange = (e: { target: any }) => {
+        if (e.target.value) {
+          inputNode.text = e.target.value
+          if (inputNodeStyle.color !== '#303133')
+            inputNodeStyle.color = '#303133'
+        }
+        else {
+          inputNode.text = props.placeholder ?? ''
+          inputNodeStyle.color = '#A9ABB2'
+        }
+      }
     }
-    container!.appendChild(inputNode)
 
-    const handleChange = (e: { target: HTMLInputElement }) => {
-      if (e.target.value) {
-        inputNode.text = e.target.value
-        if (inputNodeStyle.color !== '#303133')
-          inputNodeStyle.color = '#303133'
-      }
-      else {
-        inputNode.text = props.placeholder ?? ''
-        inputNodeStyle.color = '#A9ABB2'
-      }
-    }
+    container!.appendChild(inputNode)
 
     return () => null
   },
