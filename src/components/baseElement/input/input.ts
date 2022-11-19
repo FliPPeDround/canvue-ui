@@ -9,15 +9,16 @@ export default defineComponent({
   name: 'CanvasButton',
   props: {
     placeholder: String,
+    modelValue: String,
   },
-  emits: ['click'],
-  setup(props) {
+  emits: ['update:modelValue'],
+  setup(props, { emit }) {
     const container = useRootCanvas('input')
 
     const inputNode = createElement('Text')
     const inputNodeStyle = inputNode.style
     Object.assign(inputNodeStyle, InputStyle)
-    inputNode.text = props.placeholder ?? ''
+    inputNode.text = props.modelValue ?? props.placeholder ?? ''
 
     inputNode.onPointerDown = () => {
       const position = getPositionByNode(inputNode)
@@ -30,16 +31,21 @@ export default defineComponent({
       inputEl.value!.focus()
       inputEl.value!.placeholder = props.placeholder === inputNode.text ? props.placeholder : ''
       inputEl.value!.value = props.placeholder === inputNode.text ? '' : inputNode.text
+
       inputEl.value!.onchange = (e: { target: any }) => {
         if (e.target.value) {
           inputNode.text = e.target.value
-          if (inputNodeStyle.color !== '#303133')
-            inputNodeStyle.color = '#303133'
+          if (inputNodeStyle.color !== '#000')
+            inputNodeStyle.color = '#000'
         }
         else {
           inputNode.text = props.placeholder ?? ''
           inputNodeStyle.color = '#A9ABB2'
         }
+      }
+
+      inputEl.value!.oninput = (e: { target: any }) => {
+        emit('update:modelValue', e.target!.value)
       }
     }
 
